@@ -16,6 +16,7 @@ public class User {
         this.nombre = unNombre;
         this.apellido = unApellido;
     }
+
     public User(){
 
     }

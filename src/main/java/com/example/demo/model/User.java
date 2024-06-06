@@ -1,9 +1,9 @@
 package com.example.demo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -12,15 +12,18 @@ public class User {
     private Long id;
     private String nombre, apellido;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Order> orders;
+
     public User(String unNombre, String unApellido){
         this.nombre = unNombre;
         this.apellido = unApellido;
+        this.orders = new ArrayList<>();
     }
 
     public User(){
 
     }
-
 
     public Long getId() {
         return id;
@@ -44,5 +47,11 @@ public class User {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    public Order addOrder(Order anOrder){
+        this.orders.add(anOrder);
+        anOrder.setUser(this);
+        return anOrder;
     }
 }

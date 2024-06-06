@@ -4,6 +4,3 @@ CREATE TABLE IF NOT EXISTS users (
     apellido VARCHAR(255) NOT NULL
 );
 
-
-INSERT INTO users (nombre, apellido) VALUES ('Ada', 'Turing');
-INSERT INTO users (nombre, apellido) VALUES ('Ada', 'Lovelace');

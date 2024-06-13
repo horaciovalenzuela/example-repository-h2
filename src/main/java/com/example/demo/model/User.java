@@ -12,12 +12,15 @@ public class User {
     private Long id;
     private String nombre, apellido;
 
+    private int edad;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Order> orders;
 
-    public User(String unNombre, String unApellido){
+    public User(String unNombre, String unApellido, int edad){
         this.nombre = unNombre;
         this.apellido = unApellido;
+        this.edad = edad;
         this.orders = new ArrayList<>();
     }
 
@@ -53,5 +56,13 @@ public class User {
         this.orders.add(anOrder);
         anOrder.setUser(this);
         return anOrder;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
 }

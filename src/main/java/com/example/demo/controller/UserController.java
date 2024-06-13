@@ -25,13 +25,19 @@ public class UserController {
     public User create(@RequestBody Map<String, Object> requestBody) {
         String name = requestBody.get("name").toString();
         String surname = requestBody.get("surname").toString();
-        User user = new User(name, surname);
+        int age = (int) requestBody.get("age");
+        User user = new User(name, surname, age);
         return userService.createUser(user);
     }
 
     @GetMapping("/")
     public List<User> findAll(){
         return userService.findAll();
+    }
+
+    @GetMapping("/userbetween")
+    public List<User> findAllWithAgeBetween(int x, int y){
+        return userService.findAllWithAgeBetween(x, y);
     }
 
 }

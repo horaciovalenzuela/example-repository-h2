@@ -20,6 +20,16 @@ public class OrderController {
     @Autowired
     private UserService userService;
 
+    public OrderController(){
+
+    }
+
+
+    public OrderController(OrderService orderService, UserService userService){
+        this.orderService = orderService;
+        this.userService = userService;
+    }
+
     @GetMapping("/{id}")
     public Optional<Order> searchUserById(@PathVariable Long id){
         return orderService.findById(id);

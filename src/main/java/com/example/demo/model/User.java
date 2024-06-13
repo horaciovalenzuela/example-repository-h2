@@ -10,17 +10,17 @@ import java.util.List;
 public class User {
     @Id @GeneratedValue
     private Long id;
-    private String nombre, apellido;
+    private String name, surname;
 
-    private int edad;
+    private int age;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Order> orders;
 
     public User(String unNombre, String unApellido, int edad){
-        this.nombre = unNombre;
-        this.apellido = unApellido;
-        this.edad = edad;
+        this.name = unNombre;
+        this.surname = unApellido;
+        this.age = edad;
         this.orders = new ArrayList<>();
     }
 
@@ -36,20 +36,20 @@ public class User {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String nombre) {
+        this.name = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setSurname(String apellido) {
+        this.surname = apellido;
     }
 
     public Order addOrder(Order anOrder){
@@ -59,10 +59,10 @@ public class User {
     }
 
     public int getEdad() {
-        return edad;
+        return age;
     }
 
     public void setEdad(int edad) {
-        this.edad = edad;
+        this.age = edad;
     }
 }

@@ -14,9 +14,9 @@ public class OrderService {
 
     @Autowired
     private UserRepository userRepository;
-
     @Autowired
     private OrderRepository orderRepository;
+
     public Order createAndAddOrder(String description, Long id) {
         User user = userRepository.findById(id).get();
         Order order = new Order(description, user);

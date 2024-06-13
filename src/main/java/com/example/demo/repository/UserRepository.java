@@ -10,8 +10,7 @@ import java.util.List;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    @Query("SELECT * FROM users u WHERE u.edad " +
-            "BETWEEN :edadMin AND :edadMax")
+    @Query("SELECT u FROM User u WHERE u.edad BETWEEN :edadMin AND :edadMax")
     List<User> findAllWithAgeBetween(@Param("edadMin") int x,
                                      @Param("edadMax") int y);
 }

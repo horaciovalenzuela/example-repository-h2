@@ -16,6 +16,15 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    public UserController(){
+
+    }
+
+
+    public UserController(UserService userService){
+        this.userService = userService;
+    }
+
     @GetMapping("/{id}")
     public Optional<User> searchUserById(@PathVariable Long id){
         return userService.findById(id);

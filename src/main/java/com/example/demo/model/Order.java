@@ -13,6 +13,7 @@ public class Order {
 
     private String description;
 
+    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
     private List<Product> products;
 
     @ManyToOne(cascade = CascadeType.ALL)
